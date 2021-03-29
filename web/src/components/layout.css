@@ -1,0 +1,27 @@
+@tailwind base;
+
+main {
+  padding-top: 120px;
+}
+h1 {
+  @apply text-2xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
+a {
+  @apply text-blue-600;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.drop-shadow {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  & img {
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+}
