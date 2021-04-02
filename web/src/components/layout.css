@@ -1,7 +1,7 @@
 @tailwind base;
 
 main {
-  padding-top: 120px;
+  padding-top: 80px;
 }
 h1 {
   @apply text-2xl;
@@ -23,5 +23,11 @@ a {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
   & img {
     filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding-top: 120px;
   }
 }
