@@ -41,10 +41,25 @@ const CtaHome = () => {
             Schedule An Appointment
           </p>
           <p className="mt-3 text-lg text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas
-            tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim
-            et fermentum, augue. Aliquet amet volutpat quisque ut interdum
-            tincidunt duis.
+            Scheduling an appointment is easy! To get started, just let us know
+            the day and time you are available for your appointment. We will try
+            to accommodate your schedule as best as we can.
+          </p>
+          <p className="mt-3 text-lg text-gray-300">
+            If you're running late or just need to reschedule, please let us
+            know at least 24 hours in advance by calling{' '}
+            <a
+              href="tel:+15087470744"
+              className="text-yellow-500 hover:text-yellow-300 font-bold"
+            >
+              (508) 747-0744
+            </a>
+            . If you'd like to cancel or change your appointment, please give us
+            24 hours notice.
+          </p>
+          <p className="mt-3 text-lg text-gray-300">
+            Our salon is open weekdays and Saturdays from 9 a.m. to 6 p.m.
+            Appointments are required for all services. We hope to see you soon!
           </p>
           <div className="mt-8">
             <div className="inline-flex rounded-md shadow">
