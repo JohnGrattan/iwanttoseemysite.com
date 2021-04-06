@@ -91,28 +91,24 @@ const ServicesSpaHome = () => {
             </div>
             <div className="mt-5 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
               <p>
-                Our talented stylists are dedicated and excited to make sure
-                that you leave our salon happy with your new look.
+                Our certified estheticians & massage therapists are well trained
+                and experienced within their fields.
               </p>
               <ul>
                 <li>
                   <strong>Skin Care Services</strong>: facials, chemical peels,
-                  injectiables, eye & lip area rescue treatments, make-up
-                  applications & lessons, eyelash extensions
+                  injectables, eye & lip area rescue treatments, make-up
+                  applications & lessons, eyelash extensions, & more
                 </li>
                 <li>
-                  <strong>Massage Services</strong>: hair color, foil
-                  highlights, creative highlighting techniques, color glossing,
-                  color sync, corrective hair coloring
-                </li>
-                <li>
-                  <strong>Hair Texturing Services</strong>: smoothing treatments
-                  (including Keratin)
+                  <strong>Massage Therapy & Body Services</strong>: full body
+                  massages, hot stone massages, detoxifying body treatments, spa
+                  back treatments, & more
                 </li>
               </ul>
               <p>
-                Not sure which hair service is right for you? Feel free to give
-                us a call and talk with one of our stylists.
+                Not sure which spa service is right for you? Feel free to give
+                us a call and talk with one of our specialists.
               </p>
               <h3>
                 Give Us A Call:{' '}
@@ -123,10 +119,10 @@ const ServicesSpaHome = () => {
                 </a>
               </h3>
               <p>
-                Get your professional hair care treatment today! Scheduling an
-                appointment is easy, just give us a call and let us know what
-                services you're interested in and which day & time works best
-                for you.
+                Get your professional day spa & massage therapy treatment today!
+                Scheduling an appointment is easy, just give us a call and let
+                us know what services you're interested in and which day & time
+                works best for you.
               </p>
               <p>We look forward to making you look and feel your best!</p>
             </div>
