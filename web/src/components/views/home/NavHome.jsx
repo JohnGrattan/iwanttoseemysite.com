@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const NavHome = () => {
   const data = useStaticQuery(graphql`
@@ -11,9 +11,12 @@ const NavHome = () => {
         }
       ) {
         childImageSharp {
-          fixed(quality: 90, width: 300) {
-            ...GatsbyImageSharpFixed_withWebp
-          }
+          gatsbyImageData(
+            quality: 90
+            width: 300
+            layout: FIXED
+            placeholder: BLURRED
+          )
         }
       }
       imgServices: file(
@@ -22,9 +25,12 @@ const NavHome = () => {
         }
       ) {
         childImageSharp {
-          fixed(quality: 90, width: 300) {
-            ...GatsbyImageSharpFixed_withWebp
-          }
+          gatsbyImageData(
+            quality: 90
+            width: 300
+            layout: FIXED
+            placeholder: BLURRED
+          )
         }
       }
       imgGiftCard: file(
@@ -33,17 +39,20 @@ const NavHome = () => {
         }
       ) {
         childImageSharp {
-          fixed(quality: 90, width: 300) {
-            ...GatsbyImageSharpFixed_withWebp
-          }
+          gatsbyImageData(
+            quality: 90
+            width: 300
+            layout: FIXED
+            placeholder: BLURRED
+          )
         }
       }
     }
   `);
 
-  const imgAbout = data.imgAbout.childImageSharp.fixed;
-  const imgServices = data.imgServices.childImageSharp.fixed;
-  const imgGiftCard = data.imgGiftCard.childImageSharp.fixed;
+  const imgAbout = data.imgAbout.childImageSharp.gatsbyImageData;
+  const imgServices = data.imgServices.childImageSharp.gatsbyImageData;
+  const imgGiftCard = data.imgGiftCard.childImageSharp.gatsbyImageData;
 
   return (
     <div className="relative bg-indigo-200 bg-opacity-25 py-16 sm:py-24 lg:py-32">
@@ -71,19 +80,19 @@ const NavHome = () => {
                 <div className="-mt-6">
                   <div>
                     <span className="inline-flex items-center justify-center p-1 bg-indigo-400 rounded-md shadow-lg">
-                      <Img fixed={imgAbout} className="" />
+                      <GatsbyImage image={imgAbout} className="" alt="About" />
                     </span>
                   </div>
                   <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
                     About Aristocracy
                   </h3>
                   <p className="mt-5 text-base text-gray-500">
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
+                    Want to learn more about Aristocracy Salon & Day Spa? Meet
+                    the team, find out who we are, and learn about our mission.
                   </p>
                   <div className="mt-3">
                     <Link
-                      to="#"
+                      to="/about/"
                       className="text-lg font-medium text-yellow-600 hover:text-yellow-500"
                     >
                       Learn more <span aria-hidden="true">&rarr;</span>{' '}
@@ -98,19 +107,23 @@ const NavHome = () => {
                 <div className="-mt-6">
                   <div>
                     <span className="inline-flex items-center justify-center p-1 bg-indigo-400 rounded-md shadow-lg">
-                      <Img fixed={imgServices} className="" />
+                      <GatsbyImage
+                        image={imgServices}
+                        className=""
+                        alt="Services"
+                      />
                     </span>
                   </div>
                   <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
                     See Our Services
                   </h3>
                   <p className="mt-5 text-base text-gray-500">
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
+                    Interested in our services? Check out our full menu for
+                    service & package descriptions with pricing options.
                   </p>
                   <div className="mt-3">
                     <Link
-                      to="#"
+                      to="/services/"
                       className="text-lg font-medium text-yellow-600 hover:text-yellow-500"
                     >
                       Learn more <span aria-hidden="true">&rarr;</span>{' '}
@@ -125,19 +138,23 @@ const NavHome = () => {
                 <div className="-mt-6">
                   <div>
                     <span className="inline-flex items-center justify-center p-1 bg-indigo-400 rounded-md shadow-lg">
-                      <Img fixed={imgGiftCard} className="" />
+                      <GatsbyImage
+                        image={imgGiftCard}
+                        className=""
+                        alt="Gift card"
+                      />
                     </span>
                   </div>
                   <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
                     Buy A Gift Card
                   </h3>
                   <p className="mt-5 text-base text-gray-500">
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
+                    Looking to get a great gift for friends & family? Consider a
+                    gift card that can be used for any of our services.
                   </p>
                   <div className="mt-3">
                     <Link
-                      to="#"
+                      to="/gift-cards/"
                       className="text-lg font-medium text-yellow-600 hover:text-yellow-500"
                     >
                       Learn more <span aria-hidden="true">&rarr;</span>{' '}

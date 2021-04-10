@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const ids = {
   h2: 'footerHeading',
@@ -59,15 +59,13 @@ const Footer = () => {
         }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
   `);
 
-  const imgLogo = data.logo.childImageSharp.fluid;
+  const imgLogo = data.logo.childImageSharp.gatsbyImageData;
 
   return (
     <footer className={classes.footer} aria-labelledby={aria.footer}>
@@ -77,8 +75,8 @@ const Footer = () => {
       <div className={classes.wrapper}>
         <div className={classes.grid}>
           <div className={classes.wrapper1ColLogo}>
-            <Img
-              fluid={imgLogo}
+            <GatsbyImage
+              image={imgLogo}
               className={classes.logo}
               alt="Aristocracy Salon & Day Spa logo"
             />

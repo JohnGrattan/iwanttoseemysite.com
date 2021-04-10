@@ -6,12 +6,12 @@ import SEO from '../components/common/Seo';
 import HeaderPage from '../components/layouts/HeroPage';
 import { CameraIcon } from '@heroicons/react/solid';
 
-const NotFoundPage = () => {
+const GiftCardsPage = () => {
   const data = useStaticQuery(graphql`
-    query NotFoundPageQ {
+    query GiftCardsPageQ {
       imgHeroBg: file(
         relativePath: {
-          eq: "assets/images/home/hair-design-aristocracy-salon-day-spa-plymouth-ma.jpg"
+          eq: "assets/images/gift-cards/gift-cards-available-aristocracy-salon-day-spa-plymouth-ma.jpg"
         }
       ) {
         childImageSharp {
@@ -164,4 +164,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default GiftCardsPage;

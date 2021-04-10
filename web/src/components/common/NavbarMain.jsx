@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 
 import NavLogo from './NavLogo';
@@ -17,15 +17,18 @@ const NavbarMain = () => {
         }
       ) {
         childImageSharp {
-          fixed(quality: 90, width: 225) {
-            ...GatsbyImageSharpFixed_withWebp
-          }
+          gatsbyImageData(
+            quality: 90
+            width: 225
+            layout: FIXED
+            placeholder: BLURRED
+          )
         }
       }
     }
   `);
 
-  const imgLogo = data.imgLogo.childImageSharp.fixed;
+  const imgLogo = data.imgLogo.childImageSharp.gatsbyImageData;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,24 +38,24 @@ const NavbarMain = () => {
         <div className="flex justify-between h-20">
           <div className="flex">
             <NavLogo>
-              <Img fixed={imgLogo} />
+              <GatsbyImage image={imgLogo} alt="Logo" loading="eager" />
             </NavLogo>
           </div>
           <div className="flex">
             <NavItems
-              item1Link="#"
+              item1Link="/"
               item1Text="Home"
-              item2Link="#"
+              item2Link="/about/"
               item2Text="About Us"
-              item3Link="#"
+              item3Link="/services/"
               item3Text="Services"
-              item4Link="#"
+              item4Link="/gift-cards/"
               item4Text="Gift Cards"
             />
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <ButtonInternalLink
-              btnLink="#"
+              btnLink="/contact/"
               bgColor="bg-yellow-500"
               bgHoverColor="bg-yellow-600"
               textColor="text-white"
@@ -133,31 +136,31 @@ const NavbarMain = () => {
           <div className="pt-2 pb-3 space-y-1">
             {/* <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" --> */}
             <Link
-              to="#"
+              to="/"
               className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
               Home
             </Link>
             <Link
-              to="#"
+              to="/about/"
               className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
-              About
+              About Us
             </Link>
             <Link
-              to="#"
+              to="/services/"
               className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
               Services
             </Link>
             <Link
-              to="#"
+              to="/gift-cards/"
               className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
               Gift Cards
             </Link>
             <Link
-              to="#"
+              to="/contact/"
               className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
               Contact

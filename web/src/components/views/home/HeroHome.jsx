@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import ButtonInternalLink from '../../common/ButtonInternalLink';
 
 const HeroHome = () => {
@@ -12,28 +12,30 @@ const HeroHome = () => {
         }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
   `);
 
-  const imgHeroBg = data.imgHeroBg.childImageSharp.fluid;
+  const imgHeroBg = data.imgHeroBg.childImageSharp.gatsbyImageData;
 
   return (
     //  <!-- This example requires Tailwind CSS v2.0+ -->
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
-        <Img fluid={imgHeroBg} className="w-full h-full object-cover" alt="" />
+        <GatsbyImage
+          image={imgHeroBg}
+          className="w-full h-full object-cover"
+          alt="Hero"
+        />
         {/* <img
           className="h-full w-full object-cover"
           src="https://thumbnails.yayimages.com/1600/1/ef2/1ef2f2e.jpg"
           alt="People working on laptops"
         /> */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 bg-gray-200"
           style={{ mixBlendMode: 'multiply' }}
           aria-hidden="true"
         ></div>
@@ -68,16 +70,6 @@ const HeroHome = () => {
               Schedule Appointment
             </ButtonInternalLink>
           </div>
-          {/* <div className="col-2">
-            <ButtonInternalLink
-              btnLink="#"
-              bgColor="bg-white"
-              bgHoverColor="bg-gray-200"
-              textColor="black"
-            >
-              Schedule Appointment
-            </ButtonInternalLink>
-          </div> */}
         </div>
       </div>
     </div>

@@ -2,12 +2,12 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-const ReviewHairHome = () => {
+const ReviewBridalHome = () => {
   const data = useStaticQuery(graphql`
-    query ReviewHairHomeQ {
+    query ReviewBridalHomeQ {
       imgReview: file(
         relativePath: {
-          eq: "assets/images/home/hair-coloring-5-star-review-aristocracy-salon-day-spa-plymouth-ma.jpg"
+          eq: "assets/images/home/wedding-bridal-packages-5-star-review-aristocracy-salon-day-spa-plymouth-ma.jpg"
         }
       ) {
         childImageSharp {
@@ -51,17 +51,21 @@ const ReviewHairHome = () => {
                     <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                   </svg>
                   <p className="mt-6 text-2xl font-medium text-white">
-                    Amazing place to go to get your hair done. Everyone is
-                    always polite, courteous, and you're always checking on you
-                    to make sure that you don't need anything. Alissa is a
-                    fabulous hairdresser and she's the only one I let do my
-                    hair. I've seen the other girls work on other clients and
-                    they always look amazing. Most definitely five stars!
+                    I booked Aristocracy for the day of my wedding for myself,
+                    mother, mother of the groom, and 7 bridesmaids for hair &
+                    make up. The pricing is competitive and everyone looked so
+                    amazingly beautiful! Customer service was great. Everyone
+                    was also happy with their hair/make up, which is not easy to
+                    do in such a big group! Alissa did my hair and Arianna? (I
+                    keep forgetting her name, but she was amazing and wore
+                    glasses, beautiful porcelain skin), did my make up and
+                    everything was flawless. So good, one my of bridesmaids
+                    booked them for her wedding this summer!!
                   </p>
                 </div>
                 <div className="mt-6">
                   <p className="text-base font-medium text-white">
-                    Mary Dingman
+                    Kaitlynne Kelley
                   </p>
                   <div className="flex flex-row">
                     <span className="h-6 mt-3 text-center text-yellow-400">
@@ -88,4 +92,4 @@ const ReviewHairHome = () => {
   );
 };
 
-export default ReviewHairHome;
+export default ReviewBridalHome;

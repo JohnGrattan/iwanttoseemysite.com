@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 const classes = {
   wrapperNavItems: 'hidden sm:ml-6 sm:flex sm:space-x-8',
   navItem:
     'border-transparent text-gray-500 hover:border-yellow-400 hover:text-yellow-500 inline-flex items-center px-1 pt-1 text-lg font-medium',
+  activeNavItem:
+    'border-transparent text-yellow-500 hover:border-indigo-400 hover:text-indigo-500 inline-flex items-center px-1 pt-1 text-lg font-medium',
 };
 
 const NavItems = ({
@@ -19,18 +22,34 @@ const NavItems = ({
   return (
     <div className={classes.wrapperNavItems}>
       {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
-      <a href={item1Link} className={classes.navItem}>
+      <Link
+        to={item1Link}
+        className={classes.navItem}
+        activeClassName={classes.activeNavItem}
+      >
         {item1Text}
-      </a>
-      <a href={item2Link} className={classes.navItem}>
+      </Link>
+      <Link
+        to={item2Link}
+        className={classes.navItem}
+        activeClassName={classes.activeNavItem}
+      >
         {item2Text}
-      </a>
-      <a href={item3Link} className={classes.navItem}>
+      </Link>
+      <Link
+        to={item3Link}
+        className={classes.navItem}
+        activeClassName={classes.activeNavItem}
+      >
         {item3Text}
-      </a>
-      <a href={item4Link} className={classes.navItem}>
+      </Link>
+      <Link
+        to={item4Link}
+        className={classes.navItem}
+        activeClassName={classes.activeNavItem}
+      >
         {item4Text}
-      </a>
+      </Link>
     </div>
   );
 };

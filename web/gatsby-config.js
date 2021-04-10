@@ -20,13 +20,22 @@ module.exports = {
     siteUrl,
   },
   plugins: [
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

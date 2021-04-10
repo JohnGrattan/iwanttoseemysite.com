@@ -26,6 +26,10 @@ a {
   }
 }
 
+.icon-fill > g {
+  fill: #4338ca;
+}
+
 @media (min-width: 1024px) {
   main {
     padding-top: 120px;

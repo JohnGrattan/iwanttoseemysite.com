@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const CompanyHome = () => {
   const data = useStaticQuery(graphql`
@@ -11,15 +11,13 @@ const CompanyHome = () => {
         }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
   `);
 
-  const imgCompany = data.imgCompany.childImageSharp.fluid;
+  const imgCompany = data.imgCompany.childImageSharp.gatsbyImageData;
 
   return (
     <div className="relative bg-white py-16 sm:py-24">
@@ -63,19 +61,17 @@ const CompanyHome = () => {
               />
             </svg>
           </div>
-          <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-1">
+          <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
             {/* <!-- Testimonial card--> */}
             <div className="relative pb-10 rounded-2xl shadow-xl overflow-hidden">
-              <Img
-                fluid={imgCompany}
-                className="absolute inset-0 z-10 h-full w-full object-cover"
-                alt=""
-              />
-              {/* <img
-                className="absolute inset-0 h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100"
-                alt=""
-              /> */}
+              <div>
+                <GatsbyImage
+                  image={imgCompany}
+                  className="z-10"
+                  imgClassName="absolute inset-0 h-full w-full object-cover"
+                  alt="Company"
+                />
+              </div>
               <div
                 className="absolute inset-0 bg-secondary-dark"
                 style={{ mixBlendMode: 'multiply' }}
@@ -97,7 +93,7 @@ const CompanyHome = () => {
                     </p>
                   </div>
 
-                  <footer className="mt-4">
+                  <div className="mt-4">
                     <p className="text-base font-semibold text-secondary-lighter">
                       Lisa Butler - Plymouth, MA
                     </p>
@@ -113,7 +109,7 @@ const CompanyHome = () => {
                         </span>
                       </span>
                     </div>
-                  </footer>
+                  </div>
                 </blockquote>
               </div>
             </div>

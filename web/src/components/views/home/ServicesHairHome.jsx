@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import ButtonInternalLink from '../../common/ButtonInternalLink';
 
 const ServicesHairHome = () => {
   const data = useStaticQuery(graphql`
@@ -11,15 +12,13 @@ const ServicesHairHome = () => {
         }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }
   `);
 
-  const imgBeforeAfter = data.imgBeforeAfter.childImageSharp.fluid;
+  const imgBeforeAfter = data.imgBeforeAfter.childImageSharp.gatsbyImageData;
 
   return (
     <div className="bg-white overflow-hidden">
@@ -73,10 +72,10 @@ const ServicesHairHome = () => {
             <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  {/* <img className="rounded-lg shadow-lg object-cover object-center" src="https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-x=.735&fp-y=.55&w=1184&h=1376&q=80" alt="Whitney leaning against a railing on a downtown street" width="1184" height="1376"> */}
-                  <Img
-                    fluid={imgBeforeAfter}
+                  <GatsbyImage
+                    image={imgBeforeAfter}
                     className="rounded-lg shadow-lg object-cover object-center"
+                    alt="Hair"
                   />
                 </div>
               </figure>
@@ -129,7 +128,19 @@ const ServicesHairHome = () => {
                 services you're interested in and which day & time works best
                 for you.
               </p>
-              <p>We look forward to making you look and feel your best!</p>
+              <p className="text-lg">
+                <em>We look forward to making you feel your best!</em>
+              </p>
+            </div>
+            <div className="mt-10">
+              <ButtonInternalLink
+                btnLink="#"
+                bgColor="bg-yellow-500"
+                bgHoverColor="bg-yellow-600"
+                textColor="text-white"
+              >
+                See All Services
+              </ButtonInternalLink>
             </div>
           </div>
         </div>
