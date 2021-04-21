@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const CompanyHome = () => {
   const data = useStaticQuery(graphql`
@@ -19,8 +21,41 @@ const CompanyHome = () => {
 
   const imgCompany = data.imgCompany.childImageSharp.gatsbyImageData;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0, staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="relative bg-white py-16 sm:py-24">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial={'hidden'}
+      animate={controls}
+      transition={{ duration: 0.5, delay: 0 }}
+      className="relative bg-white py-16 sm:py-24"
+    >
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
         <div className="relative sm:py-16 lg:py-0">
           <div
@@ -63,7 +98,11 @@ const CompanyHome = () => {
           </div>
           <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
             {/* <!-- Testimonial card--> */}
-            <div className="relative pb-10 rounded-2xl shadow-xl overflow-hidden">
+            <motion.div
+              ref={ref}
+              variants={itemVariants}
+              className="relative pb-10 rounded-lg shadow-lg overflow-hidden"
+            >
               <div>
                 <GatsbyImage
                   image={imgCompany}
@@ -112,11 +151,15 @@ const CompanyHome = () => {
                   </div>
                 </blockquote>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
+        <motion.div
+          ref={ref}
+          variants={itemVariants}
+          className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0"
+        >
           {/* <!-- Content area --> */}
           <div className="pt-12 sm:pt-16 lg:pt-20">
             <h2 className="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
@@ -194,9 +237,9 @@ const CompanyHome = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

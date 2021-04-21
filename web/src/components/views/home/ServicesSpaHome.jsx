@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 import ButtonInternalLink from '../../common/ButtonInternalLink';
 
 const ServicesSpaHome = () => {
@@ -20,11 +23,47 @@ const ServicesSpaHome = () => {
 
   const imgSpa = data.imgSpa.childImageSharp.gatsbyImageData;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0, staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="bg-white overflow-hidden">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial={'hidden'}
+      animate={controls}
+      className="bg-white overflow-hidden"
+    >
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="hidden lg:block bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen"></div>
-        <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
+        <motion.div
+          ref={ref}
+          variants={itemVariants}
+          className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none"
+        >
           <div>
             <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
               Facials, Peels, Massages
@@ -33,7 +72,7 @@ const ServicesSpaHome = () => {
               Day Spa Services
             </h3>
           </div>
-        </div>
+        </motion.div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="relative lg:row-start-1 lg:col-start-2">
             <svg
@@ -69,19 +108,27 @@ const ServicesSpaHome = () => {
                 fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"
               />
             </svg>
-            <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
+            <motion.div
+              ref={ref}
+              variants={itemVariants}
+              className="relative text-base mx-auto max-w-prose lg:max-w-none rounded-lg shadow-lg overflow-hidden"
+            >
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                   <GatsbyImage
                     image={imgSpa}
-                    className="rounded-lg shadow-lg object-cover object-center"
+                    imgClassName="object-cover object-center"
                     alt="Spa"
                   />
                 </div>
               </figure>
-            </div>
+            </motion.div>
           </div>
-          <div className="mt-8 lg:mt-0">
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="mt-8 lg:mt-0"
+          >
             <div className="text-base max-w-prose mx-auto lg:max-w-none">
               <p className="text-lg text-gray-500">
                 At Aristocracy Salon & Day Spa, we offer a wide variety of spa
@@ -89,7 +136,7 @@ const ServicesSpaHome = () => {
               </p>
             </div>
             <div className="mt-5 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-              <p>
+              <p className="italic">
                 Our certified estheticians & massage therapists are well trained
                 and experienced within their fields.
               </p>
@@ -107,8 +154,9 @@ const ServicesSpaHome = () => {
               </ul>
 
               <p>
-                Not sure which spa service is right for you? Feel free to give
-                us a call and talk with one of our specialists.
+                Not sure which spa service is right for you? Give us a call or
+                stop by our spa for a consultation and we’ll be happy to
+                personally help you!
               </p>
               <h3>
                 Give Us A Call:{' '}
@@ -140,10 +188,10 @@ const ServicesSpaHome = () => {
                 See All Services
               </ButtonInternalLink>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

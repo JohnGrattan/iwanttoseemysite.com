@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const ReviewEyelashesHome = () => {
   const data = useStaticQuery(graphql`
@@ -19,29 +21,65 @@ const ReviewEyelashesHome = () => {
 
   const imgReview = data.imgReview.childImageSharp.gatsbyImageData;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0, staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="bg-white pt-16 lg:py-24">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial={'hidden'}
+      animate={controls}
+      className="bg-white pt-16 lg:py-24"
+    >
       <div className="pb-16 bg-secondary lg:pb-0 lg:z-10 lg:relative">
         <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
-          <div className="relative lg:-my-8">
+          <div className="relative lg:-my-8 rounded-lg shadow-lg overflow-hidden">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
             ></div>
             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
-              <div className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
+              <motion.div
+                ref={ref}
+                variants={itemVariants}
+                className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full"
+              >
                 <GatsbyImage
                   image={imgReview}
                   className="object-cover lg:h-full lg:w-full"
                   alt="Reviews"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
           <div className="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
             <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
               <blockquote>
-                <div>
+                <motion.div ref={ref} variants={itemVariants}>
                   <svg
                     className="h-12 w-12 text-white opacity-25"
                     fill="currentColor"
@@ -53,7 +91,7 @@ const ReviewEyelashesHome = () => {
                   <p className="mt-6 text-2xl font-medium text-white">
                     Going here for 20 yrs. Best salon in Plymouth, Mass.
                   </p>
-                </div>
+                </motion.div>
                 <div className="mt-6">
                   <p className="text-base font-medium text-white">
                     Brenda Lapierre
@@ -79,7 +117,7 @@ const ReviewEyelashesHome = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

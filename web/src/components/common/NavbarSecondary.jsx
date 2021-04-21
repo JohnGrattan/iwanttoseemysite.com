@@ -30,7 +30,7 @@ const NavbarSecondary = () => {
           </div>
 
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <a href="tel:+15087470744">
+            <a href="tel:+15087470744" target="_blank">
               <i className="fas fa-phone mr-3 text-yellow-500 hover:text-yellow-400"></i>
               <span className="text-gray-800 hover:text-yellow-600 text-sm font-thin ">
                 (508) 747-0744

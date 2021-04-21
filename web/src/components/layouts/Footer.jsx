@@ -333,17 +333,22 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-200 pt-8">
-          <p className="text-base text-gray-400 xl:text-center">
-            © {new Date().getFullYear()}, All Rights Reserved
-            {` `}
-          </p>
-          <p className="text-sm text-gray-400 xl:text-center">
-            Designed By
-            {` `}
-            <a href="https://johngrattan.com">John Grattan SEO & Web Design</a>
-          </p>
-        </div>
+      </div>
+      <div className="border-t border-gray-200 bg-gray-800 py-8">
+        <p className="text-base text-gray-200 xl:text-center">
+          © {new Date().getFullYear()}, All Rights Reserved
+          {` `}
+        </p>
+        <p className="text-sm text-gray-200 xl:text-center">
+          Design by
+          {` `}
+          <a
+            href="https://johngrattan.com"
+            className="text-yellow-500 hover:text-yellow-300"
+          >
+            John Grattan SEO & Web Design
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -20,9 +20,9 @@ a {
 @tailwind utilities;
 
 .drop-shadow {
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(3px 3px 5px rgba(85, 85, 85, 0.3));
   & img {
-    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(3px 3px 5px rgba(85, 85, 85, 0.3));
   }
 }
 

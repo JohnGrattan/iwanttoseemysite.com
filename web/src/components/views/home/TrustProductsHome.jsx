@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const TrustProductsHome = () => {
   // const data = useStaticQuery(graphql`
@@ -21,59 +23,115 @@ const TrustProductsHome = () => {
 
   // const imgHeroBg = data.imgHeroBg.childImageSharp.fluid;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0, staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="bg-white">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial={'hidden'}
+      animate={controls}
+      className="bg-white"
+    >
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <p className="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">
           We use only the industry's finest products because we believe that{' '}
           <em className="text-yellow-600">you deserve the best</em>.
         </p>
         <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
               alt="Workcation"
             />
-          </div>
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg"
               alt="Mirage"
             />
-          </div>
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg"
               alt="Tuple"
             />
-          </div>
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/laravel-logo-gray-400.svg"
               alt="Laravel"
             />
-          </div>
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
               alt="StaticKit"
             />
-          </div>
-          <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+          >
             <img
               className="max-h-12"
               src="https://tailwindui.com/img/logos/statamic-logo-gray-400.svg"
               alt="Statamic"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 import ButtonInternalLink from '../../common/ButtonInternalLink';
 
 const CtaHome = () => {
@@ -20,17 +23,55 @@ const CtaHome = () => {
 
   const imgCta = data.imgCta.childImageSharp.gatsbyImageData;
 
+  const variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="relative bg-gray-800">
-      <div className="h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+    <motion.div
+      ref={ref}
+      variants={variants}
+      initial={'hidden'}
+      animate={controls}
+      transition={{ duration: 0.5, delay: 0 }}
+      className="relative bg-gray-800"
+    >
+      <motion.div
+        ref={ref}
+        variants={variants}
+        initial={'hidden'}
+        animate={controls}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2"
+      >
         <GatsbyImage
           image={imgCta}
           className="w-full h-full object-cover"
           alt="Cta"
         />
-      </div>
+      </motion.div>
       <div className="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="md:ml-auto md:w-1/2 md:pl-10">
+        <motion.div
+          ref={ref}
+          variants={variants}
+          initial={'hidden'}
+          animate={controls}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="md:ml-auto md:w-1/2 md:pl-10"
+        >
           <h2 className="text-base font-semibold uppercase tracking-wider text-gray-300">
             Award winning services
           </h2>
@@ -70,9 +111,9 @@ const CtaHome = () => {
               </ButtonInternalLink>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

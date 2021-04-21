@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import {
   GiftIcon,
   ScissorsIcon,
@@ -28,10 +29,222 @@ const ServicesPage = () => {
           gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
+      imgHairServicesOne: file(
+        relativePath: {
+          eq: "assets/images/services/hair-cut-design-coloring-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairServicesTwo: file(
+        relativePath: {
+          eq: "assets/images/services/hair-cuts-mens-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairServicesThree: file(
+        relativePath: {
+          eq: "assets/images/services/hair-extensions-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairServicesFour: file(
+        relativePath: {
+          eq: "assets/images/services/hair-short-cuts-mens-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairColoringOne: file(
+        relativePath: {
+          eq: "assets/images/services/hair-coloring-womans-services-red-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairColoringTwo: file(
+        relativePath: {
+          eq: "assets/images/services/hair-coloring-womans-services-3-styles-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairColoringThree: file(
+        relativePath: {
+          eq: "assets/images/services/hair-coloring-womans-services-purple-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairColoringFour: file(
+        relativePath: {
+          eq: "assets/images/services/hair-coloring-womans-services-3-colors-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairTexturingOne: file(
+        relativePath: {
+          eq: "assets/images/services/hair-texturing-smoothing-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairTexturingTwo: file(
+        relativePath: {
+          eq: "assets/images/services/hair-texturing-smoothing-red-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairTexturingThree: file(
+        relativePath: {
+          eq: "assets/images/services/hair-texturing-smoothing-blonde-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgHairTexturingFour: file(
+        relativePath: {
+          eq: "assets/images/services/hair-texturing-smoothing-before-after-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBridalOne: file(
+        relativePath: {
+          eq: "assets/images/services/bridal-package-hair-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBridalTwo: file(
+        relativePath: {
+          eq: "assets/images/services/bridal-package-makeup-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBridalThree: file(
+        relativePath: {
+          eq: "assets/images/services/bridal-package-flowers-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBridalFour: file(
+        relativePath: {
+          eq: "assets/images/services/bridal-package-floral-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBeautyOne: file(
+        relativePath: {
+          eq: "assets/images/services/day-of-beauty-packages-collage-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBeautyTwo: file(
+        relativePath: {
+          eq: "assets/images/services/day-of-beauty-packages-facial-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBeautyThree: file(
+        relativePath: {
+          eq: "assets/images/services/day-of-beauty-packages-spa-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
+      imgBeautyFour: file(
+        relativePath: {
+          eq: "assets/images/services/day-of-beauty-packages-stone-massage-services-aristocracy-salon-day-spa-plymouth-ma.jpg"
+        }
+      ) {
+        childImageSharp {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
     }
   `);
 
   const imgHeroBg = data.imgHeroBg.childImageSharp.gatsbyImageData;
+  const imgHairServicesOne =
+    data.imgHairServicesOne.childImageSharp.gatsbyImageData;
+  const imgHairServicesTwo =
+    data.imgHairServicesTwo.childImageSharp.gatsbyImageData;
+  const imgHairServicesThree =
+    data.imgHairServicesThree.childImageSharp.gatsbyImageData;
+  const imgHairServicesFour =
+    data.imgHairServicesFour.childImageSharp.gatsbyImageData;
+  const imgHairColoringOne =
+    data.imgHairColoringOne.childImageSharp.gatsbyImageData;
+  const imgHairColoringTwo =
+    data.imgHairColoringTwo.childImageSharp.gatsbyImageData;
+  const imgHairColoringThree =
+    data.imgHairColoringThree.childImageSharp.gatsbyImageData;
+  const imgHairColoringFour =
+    data.imgHairColoringFour.childImageSharp.gatsbyImageData;
+  const imgHairTexturingOne =
+    data.imgHairTexturingOne.childImageSharp.gatsbyImageData;
+  const imgHairTexturingTwo =
+    data.imgHairTexturingTwo.childImageSharp.gatsbyImageData;
+  const imgHairTexturingThree =
+    data.imgHairTexturingThree.childImageSharp.gatsbyImageData;
+  const imgHairTexturingFour =
+    data.imgHairTexturingFour.childImageSharp.gatsbyImageData;
+  const imgBridalOne = data.imgBridalOne.childImageSharp.gatsbyImageData;
+  const imgBridalTwo = data.imgBridalTwo.childImageSharp.gatsbyImageData;
+  const imgBridalThree = data.imgBridalThree.childImageSharp.gatsbyImageData;
+  const imgBridalFour = data.imgBridalFour.childImageSharp.gatsbyImageData;
+  const imgBeautyOne = data.imgBeautyOne.childImageSharp.gatsbyImageData;
+  const imgBeautyTwo = data.imgBeautyTwo.childImageSharp.gatsbyImageData;
+  const imgBeautyThree = data.imgBeautyThree.childImageSharp.gatsbyImageData;
+  const imgBeautyFour = data.imgBeautyFour.childImageSharp.gatsbyImageData;
 
   const menuSalon = [
     {
@@ -48,7 +261,7 @@ const ServicesPage = () => {
     {
       title: 'Basic Short Hair Cuts',
       description:
-        'A basic short haircut that works for most hair types. Recommended for medium-length hair.',
+        'Our basic short haircut works for most hair types and will leave you with a style that is easy to maintain.',
       price: `$30 - $45`,
       note: "(Includes most men's haircuts)",
       icon: ScissorsIcon,
@@ -402,15 +615,47 @@ const ServicesPage = () => {
       {/* <MenuSidebar /> */}
       <div className="bg-indigo-200 bg-opacity-25">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="font-medium text-3xl mb-5">Salon Services</h2>
-            <p className="text-sm italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
-              Each of our specialties for Salon Services are provided in a
-              professional, comfortable, and relaxing location at Aristocracy
-              Salon & Day Spa. Our Hair care stations are separate from both
-              color service area and treatment rooms, allowing us to provide you
-              the best experience possible.
-            </p>
+          <div className="pb-16">
+            <div className="text-center">
+              <h2 className="font-medium text-3xl mb-5">Salon Services</h2>
+              <p className="text-base italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
+                Each of our specialties for Salon Services are provided in a
+                professional, comfortable, and relaxing location at Aristocracy
+                Salon & Day Spa. Our hair care stations are separate from both
+                color service area and treatment rooms, allowing us to provide
+                you the best experience possible.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairServicesOne}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairServicesTwo}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairServicesThree}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairServicesFour}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+            </div>
           </div>
           <MenuGrid
             actions={menuSalon}
@@ -426,15 +671,47 @@ const ServicesPage = () => {
             buttonLabel={menuSalon.buttonLabel}
             buttonLink={menuSalon.buttonLink}
           />
-          <div className="text-center mt-28">
-            <h2 className="font-medium text-3xl mb-5">Hair Color Services</h2>
-            <p className="text-sm italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
-              Each of our specialties for Salon Services are provided in a
-              professional, comfortable, and relaxing location at Aristocracy
-              Salon & Day Spa. Our Hair care stations are separate from both
-              color service area and treatment rooms, allowing us to provide you
-              the best experience possible.
-            </p>
+          <div className="pt-28 pb-16">
+            <div className="text-center">
+              <h2 className="font-medium text-3xl mb-5">Hair Color Services</h2>
+              <p className="text-base italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
+                Our Hair Coloring services are a perfect way to give your hair
+                the fresh new look that you have been dreaming of. We offer a
+                variety of services for people with all different levels of hair
+                and types from color correction, semi-permanent color,
+                conditioning treatments, and more.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairColoringOne}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairColoringTwo}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairColoringThree}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairColoringFour}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+            </div>
           </div>
           <MenuGrid
             actions={menuColor}
@@ -450,17 +727,49 @@ const ServicesPage = () => {
             buttonLabel={menuColor.buttonLabel}
             buttonLink={menuColor.buttonLink}
           />
-          <div className="text-center mt-28">
-            <h2 className="font-medium text-3xl mb-5">
-              Hair Texturing Services
-            </h2>
-            <p className="text-sm italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
-              Each of our specialties for Salon Services are provided in a
-              professional, comfortable, and relaxing location at Aristocracy
-              Salon & Day Spa. Our Hair care stations are separate from both
-              color service area and treatment rooms, allowing us to provide you
-              the best experience possible.
-            </p>
+          <div className="pt-28 pb-16">
+            <div className="text-center">
+              <h2 className="font-medium text-3xl mb-5">
+                Hair Texturing Services
+              </h2>
+              <p className="text-base italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
+                Our Hair Texturing services with Keratin are a fantastic way to
+                get rid of frizz for good. Our texturizing treatments are
+                customized with the perfect amounts of heat and treatment so
+                that you can experience lasting results. Say goodbye to frizz,
+                humidity, and curl overload!
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairTexturingOne}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairTexturingTwo}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairTexturingThree}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgHairTexturingFour}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+            </div>
           </div>
           <MenuGrid
             actions={menuTexturing}
@@ -476,15 +785,47 @@ const ServicesPage = () => {
             buttonLabel={menuTexturing.buttonLabel}
             buttonLink={menuTexturing.buttonLink}
           />
-          <div className="text-center mt-28">
-            <h2 className="font-medium text-3xl mb-5">Bridal Services</h2>
-            <p className="text-sm italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
-              Each of our specialties for Salon Services are provided in a
-              professional, comfortable, and relaxing location at Aristocracy
-              Salon & Day Spa. Our Hair care stations are separate from both
-              color service area and treatment rooms, allowing us to provide you
-              the best experience possible.
-            </p>
+          <div className="pt-28 pb-16">
+            <div className="text-center">
+              <h2 className="font-medium text-3xl mb-5">Bridal Services</h2>
+              <p className="text-base italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
+                Our Bridal service packages are the perfect way to pamper
+                yourself for your special day. We offer a variety of wedding
+                party and bachelorette packages that include our signature
+                services along with makeup application and style. Let's get
+                started today with a trial run.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBridalOne}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBridalTwo}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBridalThree}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBridalFour}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+            </div>
           </div>
           <MenuGrid
             actions={menuBridal}
@@ -500,15 +841,49 @@ const ServicesPage = () => {
             buttonLabel={menuBridal.buttonLabel}
             buttonLink={menuBridal.buttonLink}
           />
-          <div className="text-center mt-28">
-            <h2 className="font-medium text-3xl mb-5">
-              Day of Beauty Packages
-            </h2>
-            <p className="text-sm italic text-gray-500 lg:max-w-xl mb-10 mx-auto">
-              At Aristocracy we realize that our regular A la Carte services do
-              not always fit into your individual situation. We have put
-              together specialized packages to assist you in your selections.
-            </p>
+          <div className="pt-28 pb-16">
+            <div className="text-center">
+              <h2 className="font-medium text-3xl mb-5">
+                Day of Beauty Packages
+              </h2>
+              <p className="text-base italic text-gray-500 lg:max-w-2xl mb-10 mx-auto">
+                Our Day of Beauty packages are a great way to treat yourself, or
+                offer the gift of beauty for others. Our packages include our
+                signature day spa experience plus make up application and style
+                with your choice of natural-looking makeup colors that are
+                perfect for any skin type.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBeautyOne}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBeautyTwo}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBeautyThree}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+              <div className="max-w-xs rounded-lg shadow-lg overflow-hidden">
+                <GatsbyImage
+                  image={imgBeautyFour}
+                  imgClassName="object-cover object-center"
+                  alt="Hair"
+                />
+              </div>
+            </div>
           </div>
           <MenuGrid
             actions={menuPackages}

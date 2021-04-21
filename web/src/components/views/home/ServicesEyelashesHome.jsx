@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 import ButtonInternalLink from '../../common/ButtonInternalLink';
 
 const ServicesEyelashesHome = () => {
@@ -20,11 +23,47 @@ const ServicesEyelashesHome = () => {
 
   const imgEyelashes = data.imgEyelashes.childImageSharp.gatsbyImageData;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0, staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className="bg-white overflow-hidden">
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial={'hidden'}
+      animate={controls}
+      className="bg-white overflow-hidden"
+    >
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="hidden lg:block bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen"></div>
-        <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
+        <motion.div
+          ref={ref}
+          variants={itemVariants}
+          className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none"
+        >
           <div>
             <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
               Extensions, Lifts, Tints
@@ -33,7 +72,7 @@ const ServicesEyelashesHome = () => {
               Eyelash Services
             </h3>
           </div>
-        </div>
+        </motion.div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="relative lg:row-start-1 lg:col-start-2">
             <svg
@@ -69,51 +108,58 @@ const ServicesEyelashesHome = () => {
                 fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"
               />
             </svg>
-            <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
+            <motion.div
+              ref={ref}
+              variants={itemVariants}
+              className="relative text-base mx-auto max-w-prose lg:max-w-none rounded-lg shadow-lg overflow-hidden"
+            >
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  {/* <img className="rounded-lg shadow-lg object-cover object-center" src="https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-x=.735&fp-y=.55&w=1184&h=1376&q=80" alt="Whitney leaning against a railing on a downtown street" width="1184" height="1376"> */}
                   <GatsbyImage
                     image={imgEyelashes}
-                    className="rounded-lg shadow-lg object-cover object-center"
+                    imgClassName="object-cover object-center"
                     alt="Eyelashes"
                   />
                 </div>
               </figure>
-            </div>
+            </motion.div>
           </div>
-          <div className="mt-8 lg:mt-0">
+          <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="mt-8 lg:mt-0"
+          >
             <div className="text-base max-w-prose mx-auto lg:max-w-none">
               <p className="text-lg text-gray-500">
-                Aristocracy Salon & Day Spa offers an array of services for
-                men’s and women’s hair. Our stylists are highly trained and have
-                years of experience in hair care.
+                Aristocracy Salon & Day Spa offers several eyelash services. Our
+                team of professional beauty experts are trained in the latest
+                eyelash extension techniques, and we use only the highest
+                quality products on our clients.
               </p>
             </div>
             <div className="mt-5 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-              <p>
-                Our talented stylists are dedicated and excited to make sure
-                that you leave our salon happy with your new look.
+              <p className="italic">
+                Our talented team is dedicated and excited to make sure that you
+                leave our salon with your lashes looking longer and thicker.
               </p>
               <ul>
                 <li>
-                  <strong>Hair Cuts & Designs</strong>: short hair cuts, long
-                  hair cuts, children's designs & cuts, shampoo & conditioning,
-                  scalp facials, updos & braiding, hair extensions
+                  <strong>Eyelash Extensions</strong>: Novalash eyelash
+                  extensions, and more and more and more, etc.
                 </li>
                 <li>
-                  <strong>Color Services</strong>: hair color, foil highlights,
-                  creative highlighting techniques, color glossing, color sync,
-                  corrective hair coloring
+                  <strong>Eyelash Extensions</strong>: Novalash eyelash
+                  extensions, and more and more and more, etc.
                 </li>
                 <li>
-                  <strong>Hair Texturing Services</strong>: smoothing treatments
-                  (including Keratin)
+                  <strong>Eyelash Extensions</strong>: Novalash eyelash
+                  extensions, and more and more and more, etc.
                 </li>
               </ul>
               <p>
-                Not sure which hair service is right for you? Feel free to give
-                us a call and talk with one of our stylists.
+                Not sure which eyelash service is right for you? Give us a call
+                or stop by our salon for a consultation and we’ll be happy to
+                personally help you!
               </p>
               <h3>
                 Give Us A Call:{' '}
@@ -124,13 +170,15 @@ const ServicesEyelashesHome = () => {
                 </a>
               </h3>
               <p>
-                Get your professional hair care treatment today! Scheduling an
+                Get your professional eyelash treatment today! Scheduling an
                 appointment is easy, just give us a call and let us know what
                 services you're interested in and which day & time works best
                 for you.
               </p>
               <p className="text-lg">
-                <em>We look forward to making you look and feel your best!</em>
+                <em>
+                  We look forward to making your lashes look long and thick!
+                </em>
               </p>
             </div>
             <div className="mt-10">
@@ -143,10 +191,10 @@ const ServicesEyelashesHome = () => {
                 See All Services
               </ButtonInternalLink>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
