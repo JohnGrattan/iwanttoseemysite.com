@@ -8,6 +8,7 @@ const MenuGrid = ({
   price,
   description,
   note,
+  noteTwo,
   href,
   icon,
   iconForeground,
@@ -46,9 +47,12 @@ const MenuGrid = ({
           </div>
           <div className="mt-8">
             <h3 className="text-lg font-medium">{action.title}</h3>
-            <p className="mt-2 text-sm text-primary-500">{action.price}</p>
-            <p className="mt-2 text-sm text-gray-500">{action.description}</p>
-            <p className="mt-2 text-sm text-gray-500 italic">{action.note}</p>
+            <p className="mt-2 text-md text-green-800">{action.price}</p>
+            <p className="mt-6 text-sm text-gray-600">{action.description}</p>
+            <p className="mt-6 text-sm text-gray-500 italic">{action.note}</p>
+            <p className="mt-2 text-sm text-gray-500 italic">
+              {action.noteTwo}
+            </p>
           </div>
           <span className="absolute top-6 right-6">
             <ButtonInternalLink
